@@ -22,3 +22,10 @@ print("TF-IDF Features:\n", tfidf_features.toarray())
 # Word Embeddings
 embeddings = extract_embeddings([text.split() for text in preprocessed_corpus])
 print("Word Embeddings:\n", embeddings)
+
+
+
+{"train.SRC": "can i have a large bbq pulled pork", "train.EXR": "(ORDER (PIZZAORDER (NUMBER 1 ) (SIZE LARGE ) (TOPPING BBQ_PULLED_PORK ) ) )", "train.TOP": "(ORDER can i have (PIZZAORDER (NUMBER a ) (SIZE large ) (TOPPING bbq pulled pork ) ) )", "train.TOP-DECOUPLED": "(ORDER (PIZZAORDER (NUMBER a ) (SIZE large ) (TOPPING bbq pulled pork ) ) )"}
+
+
+{"train.SRC": "i'd like a large vegetarian pizza", "train.EXR": "(ORDER (PIZZAORDER (NUMBER 1 ) (SIZE LARGE ) (STYLE VEGETARIAN ) ) )", "train.TOP": "(ORDER i'd like (PIZZAORDER (NUMBER a ) (SIZE large ) (STYLE vegetarian ) pizza ) )", "train.TOP-DECOUPLED": "(ORDER (PIZZAORDER (NUMBER a ) (SIZE large ) (STYLE vegetarian ) ) )"}

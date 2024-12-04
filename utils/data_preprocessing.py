@@ -18,7 +18,7 @@ def clean_text(text):
     "by", "from", "to", "of", "for", "this", "that", "those", "these", 
     "can", "could", "would", "should", "will", "might", "may", "i", "you", 
     "we", "he", "she", "it", "they", "is", "are", "was", "were", "be", 
-    "been", "have", "has", "had", "please", 'id'
+    "been", "have", "has", "had", "please"
     ]
     custom_remove = [
     r"extra\s", 
@@ -29,9 +29,7 @@ def clean_text(text):
     r"kindly", 
     r"just", 
     r"really",
-    r"actually",
-    r"want",
-    r"like",
+    r"actually"
     ]
 
     # Remove special characters
