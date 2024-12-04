@@ -1,74 +1,41 @@
-import re
-from nltk.tokenize import word_tokenize
-from nltk.stem import WordNetLemmatizer
-import nltk
-from nltk.corpus import stopwords
- 
-nltk.download('stopwords')
-lemmatizer = WordNetLemmatizer()
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+import numpy as np
+import gensim.downloader as api
 
+# Load pre-trained embeddings (e.g., GloVe)
+glove_vectors = api.load("glove-wiki-gigaword-100")  # 100-dimension GloVe
 
-def clean_text(text):
+def bag_of_words(corpus):
     """
-    Remove special characters and unnecessary symbols from text.
+    Extract Bag of Words features from a text corpus.
     """
-    #stop_words = set(stopwords.words('english')) # takes much time
-    stop_words = [
-    "a", "an", "the", "and", "or", "but", "if", "on", "in", "with", "without", "at", 
-    "by", "from", "to", "of", "for", "this", "that", "those", "these", 
-    "can", "could", "would", "should", "will", "might", "may", "i", "you", 
-    "we", "he", "she", "it", "they", "is", "are", "was", "were", "be", 
-    "been", "have", "has", "had", "please", 'id'
-    ]
-    custom_remove = [
-    r"extra\s", 
-    r"please",
-    r"thank\s?you", 
-    r"no\s",     # Remove negations if context-independent
-    r"lot\s?of", # Remove "lot of"
-    r"kindly", 
-    r"just", 
-    r"really",
-    r"actually",
-    r"want",
-    r"like",
-    ]
+    vectorizer = CountVectorizer()
+    bow_features = vectorizer.fit_transform(corpus)
+    return bow_features, vectorizer
 
-    # Remove special characters
-    text = re.sub(r"[^\w\s]", " ", text)  # Remove punctuation and special characters
-    
-    # Remove extra whitespace
-    text = re.sub(r"\s+", " ", text).strip()
-    
-    # Remove stopwords
-    if stop_words:
-        text = " ".join([word for word in text.split() if word.lower() not in stop_words])
-    
-    # Remove custom characters or substrings
-    if custom_remove:
-        for pattern in custom_remove:
-            text = re.sub(pattern, "", text)
-    return text
+def tfidf_features(corpus):
+    """
+    Extract TF-IDF features from a text corpus.
+    """
+    vectorizer = TfidfVectorizer()
+    tfidf_features = vectorizer.fit_transform(corpus)
+    return tfidf_features, vectorizer
 
-def tokenize_text(text):
+def get_word_embeddings(tokens):
     """
-    Tokenize the text into words.
+    Get average word embeddings for a list of tokens using pre-trained GloVe.
     """
-    return word_tokenize(text)
+    embeddings = []
+    for token in tokens:
+        if token in glove_vectors:
+            embeddings.append(glove_vectors[token])
+    if embeddings:
+        return np.mean(embeddings, axis=0)
+    else:
+        return np.zeros(glove_vectors.vector_size)  # Return a zero vector if no embeddings are found
 
-def lemmatize_tokens(tokens):
+def extract_embeddings(corpus):
     """
-    Lemmatize each token in a list.
+    Extract word embeddings for a corpus.
     """
-    return [lemmatizer.lemmatize(token) for token in tokens]
-
-def preprocess_text(text):
-    """
-    Full preprocessing pipeline.
-    """
-    text = clean_text(text)
-    tokens = tokenize_text(text)
-    tokens = lemmatize_tokens(tokens)
-    return tokens
-
-
+    return np.array([get_word_embeddings(tokens) for tokens in corpus])
