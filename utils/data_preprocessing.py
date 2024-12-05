@@ -14,24 +14,24 @@ def clean_text(text):
     """
     #stop_words = set(stopwords.words('english')) # takes much time
     stop_words = [
-    "a", "an", "the", "and", "or", "but", "if", "on", "in", "with", "without", "at", 
+    "a", "an", "the", "and", "or", "but", "if", "in",  "at", 
     "by", "from", "to", "of", "for", "this", "that", "those", "these", 
     "can", "could", "would", "should", "will", "might", "may", "i", "you", 
     "we", "he", "she", "it", "they", "is", "are", "was", "were", "be", 
     "been", "have", "has", "had", "please","'", "d",
-    ]#### i'd
+    ]#### i'd with without no "on", "with", "without",
     custom_remove = [
     r"extra\s", 
     r"please",
     r"thank\s?you", 
-    r"no\s",     # Remove negations if context-independent
+    # Remove negations if context-independent   r"no\s",     
     r"lot\s?of", # Remove "lot of"
     r"kindly", 
     r"just", 
     r"really",
     r"actually",
-    r"like",######
-    r"want",#####
+######    r"like",
+#####    r"want",
     ]
 
     # Remove special characters
