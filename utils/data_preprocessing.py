@@ -4,7 +4,7 @@ from nltk.stem import WordNetLemmatizer
 import nltk
 from nltk.corpus import stopwords
  
-nltk.download('stopwords')
+#nltk.download('stopwords')
 lemmatizer = WordNetLemmatizer()
 
 
@@ -18,8 +18,8 @@ def clean_text(text):
     "by", "from", "to", "of", "for", "this", "that", "those", "these", 
     "can", "could", "would", "should", "will", "might", "may", "i", "you", 
     "we", "he", "she", "it", "they", "is", "are", "was", "were", "be", 
-    "been", "have", "has", "had", "please"
-    ]
+    "been", "have", "has", "had", "please","'", "d",
+    ]#### i'd
     custom_remove = [
     r"extra\s", 
     r"please",
@@ -29,7 +29,9 @@ def clean_text(text):
     r"kindly", 
     r"just", 
     r"really",
-    r"actually"
+    r"actually",
+    r"like",######
+    r"want",#####
     ]
 
     # Remove special characters
