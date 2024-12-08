@@ -14,14 +14,13 @@ def clean_text(text):
     """
     #stop_words = set(stopwords.words('english')) # takes much time
     stop_words = [
-    "a", "an", "the", "and", "or", "but", "if", "in",  "at", 
+    "an", "the", "and", "or", "but", "if", "in",  "at", 
     "by", "from", "to", "of", "for", "this", "that", "those", "these", 
     "can", "could", "would", "should", "will", "might", "may", "i", "you", 
     "we", "he", "she", "it", "they", "is", "are", "was", "were", "be", 
     "been", "have", "has", "had", "please","'", "d",
-    ]#### i'd with without no "on", "with", "without",
+    ]#### i'd with without no "on", "with", "without",    "a", 
     custom_remove = [
-    r"extra\s", 
     r"please",
     r"thank\s?you", 
     # Remove negations if context-independent   r"no\s",     
@@ -31,8 +30,26 @@ def clean_text(text):
     r"really",
     r"actually",
 ######    r"like",
+###### r"extra\s", 
 #####    r"want",
     ]
+    replacement_dict = {
+        "peperonni": "pepperoni",
+        "peperonis": "pepperoni",
+        "peppperonis": "pepperoni",
+        "peperronni": "pepperoni",
+        "peperroni": "pepperoni",
+        "peppperoni": "pepperoni",
+        "napolitan": "neapolitan",
+        "mozarella": "mozzarella",
+        "not":"NOT",
+        "peper":"pepper"
+    }
+
+        # Replace words using the replacement dictionary
+    if replacement_dict:
+        for old_word, new_word in replacement_dict.items():
+            text = re.sub(rf"\b{old_word}\b", new_word, text, flags=re.IGNORECASE)
 
     # Remove special characters
     text = re.sub(r"[^\w\s]", " ", text)  # Remove punctuation and special characters
