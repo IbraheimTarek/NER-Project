@@ -14,12 +14,12 @@ def clean_text(text):
     """
     #stop_words = set(stopwords.words('english')) # takes much time
     stop_words = [
-    "an", "the", "and", "or", "but", "if", "in",  "at", 
+    "the", "and", "or", "but", "if", "in",  "at", 
     "by", "from", "to", "of", "for", "this", "that", "those", "these", 
     "can", "could", "would", "should", "will", "might", "may", "i", "you", 
     "we", "he", "she", "it", "they", "is", "are", "was", "were", "be", 
-    "been", "have", "has", "had", "please","'", "d",
-    ]#### i'd with without no "on", "with", "without",    "a", 
+    "been", "have", "has", "had", "please","'", "d","without", "with", "any", "s", "i'll"
+    ]#### i'd with without no "on", "with", "without",    "a",      "an",
     custom_remove = [
     r"please",
     r"thank\s?you", 
@@ -29,24 +29,26 @@ def clean_text(text):
     r"just", 
     r"really",
     r"actually",
-######    r"like",
-###### r"extra\s", 
-#####    r"want",
+    r"like",
+    r"extra\s", 
+    r"want",
     ]
     replacement_dict = {
-        "peperonni": "pepperoni",
-        "peperonis": "pepperoni",
-        "peppperonis": "pepperoni",
-        "peperronni": "pepperoni",
-        "peperroni": "pepperoni",
-        "peppperoni": "pepperoni",
-        "napolitan": "neapolitan",
-        "mozarella": "mozzarella",
-        "not":"NOT",
-        "peper":"pepper"
+        "no": "NOT",
+        "not": "NOT",
+        "avoid": "NOT",
+        "hold": "NOT",
+        "don't": "NOT",
+        # "peppperonis": "pepperoni",
+        # "peperronni": "pepperoni",
+        # "peperroni": "pepperoni",
+        # "peppperoni": "pepperoni",
+        # "napolitan": "neapolitan",
+        # "mozarella": "mozzarella",
+        # "peper":"pepper"
     }
 
-        # Replace words using the replacement dictionary
+        # Replace words using the replacement dict
     if replacement_dict:
         for old_word, new_word in replacement_dict.items():
             text = re.sub(rf"\b{old_word}\b", new_word, text, flags=re.IGNORECASE)
