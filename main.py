@@ -24,6 +24,9 @@ embeddings = extract_embeddings([text.split() for text in preprocessed_corpus])
 print("Word Embeddings:\n", embeddings)
 
 {"train.SRC": "large pie with green pepper and with extra peperonni", "train.EXR": "(ORDER (PIZZAORDER (NUMBER 1 ) (SIZE LARGE ) (TOPPING GREEN_PEPPERS ) (COMPLEX_TOPPING (QUANTITY EXTRA ) (TOPPING PEPPERONI ) ) ) )", "train.TOP": "(ORDER (PIZZAORDER (SIZE large ) pie with (TOPPING green pepper ) and with (COMPLEX_TOPPING (QUANTITY extra ) (TOPPING peperonni ) ) ) )", "train.TOP-DECOUPLED": "(ORDER (PIZZAORDER (SIZE large ) (TOPPING green pepper ) (COMPLEX_TOPPING (QUANTITY extra ) (TOPPING peperonni ) ) ) )"}
+
+(ORDER (PIZZAORDER (SIZE large ) pie with (TOPPING green pepper ) and with (COMPLEX_TOPPING (QUANTITY extra ) (TOPPING peperonni ) ) ) )
+
 {"train.SRC": "i'd like a large vegetarian pizza", "train.EXR": "(ORDER (PIZZAORDER (NUMBER 1 ) (SIZE LARGE ) (STYLE VEGETARIAN ) ) )", }
 {"train.SRC": "party size stuffed crust pie with american cheese and with mushroom", "train.EXR": "(ORDER (PIZZAORDER (NUMBER 1 ) (SIZE PARTY_SIZE ) (STYLE STUFFED_CRUST ) (TOPPING AMERICAN_CHEESE ) (TOPPING MUSHROOMS ) ) )", "train.TOP": "(ORDER (PIZZAORDER (SIZE party size ) (STYLE stuffed crust ) pie with (TOPPING american cheese ) and with (TOPPING mushroom ) ) )", "train.TOP-DECOUPLED": "(ORDER (PIZZAORDER (SIZE party size ) (STYLE stuffed crust ) (TOPPING american cheese ) (TOPPING mushroom ) ) )"}
 {"train.SRC": "can i have one personal sized artichoke", "train.EXR": "(ORDER (PIZZAORDER (NUMBER 1 ) (SIZE PERSONAL_SIZE ) (TOPPING ARTICHOKES ) ) )", "train.TOP": "(ORDER can i have (PIZZAORDER (NUMBER one ) (SIZE personal sized ) (TOPPING artichoke ) ) )", "train.TOP-DECOUPLED": "(ORDER (PIZZAORDER (NUMBER one ) (SIZE personal sized ) (TOPPING artichoke ) ) )"}
