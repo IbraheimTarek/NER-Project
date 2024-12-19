@@ -1,6 +1,5 @@
 import json
 import random
-from copy import deepcopy
 import re
 
 
