@@ -1,0 +1,3 @@
+id,output
+0,(ORDER (PIZZAORDER (NUMBER five ) (SIZE medium ) pizzas with (TOPPING tomatoes ) and (TOPPING ham ) ) )
+1,(ORDER i want to order (PIZZAORDER (NUMBER two ) (SIZE medium ) pizzas with (TOPPING sausage ) and (TOPPING black olives ) ) and (PIZZAORDER (NUMBER two ) (SIZE medium ) pizzas with (TOPPING pepperoni ) and (COMPLEX_TOPPING (QUANTITY extra ) (TOPPING cheese ) ) ) and (PIZZAORDER (NUMBER three ) (SIZE large ) pizzas with (TOPPING pepperoni ) and (TOPPING sausage ) ) )

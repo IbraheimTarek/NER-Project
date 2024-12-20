@@ -44,6 +44,14 @@ def clean_pizza_train_and_dev(train_path, dev_path, output_path):
                 src_text = record["dev.SRC"]
                 src_top = record["dev.TOP"]
                 outfile.write(json.dumps({"train.SRC": src_text, "train.TOP": src_top}) + "\n")
+                
+        # process PIZZA.test
+        with open("dataset/PIZZA_test.json", 'r') as test_file:
+            for line in test_file:
+                record = json.loads(line)
+                src_text = record["test.SRC"]
+                src_top = record["test.TOP"]
+                outfile.write(json.dumps({"train.SRC": src_text, "train.TOP": src_top}) + "\n")
 
 
 def generate_class_words():
@@ -52,28 +60,40 @@ def generate_class_words():
     Returns a dictionary with these classes as keys.
     """
     class_words = {
-        "DRINKTYPE": [
-            "iced tea", "cola", "lemonade", "orange juice", "sparkling water", "coffee", "green tea", "latte",
-            "cappuccino", "espresso", "milkshake", "smoothie", "mocha", "hot chocolate", "herbal tea", "black coffee",
-            "americano", "frappuccino", "kombucha", "energy drink", "matcha latte", "cold brew", "ginger ale"
-        ],
-        "TOPPING": [
-            "pepperoni", "mushrooms", "onions", "sausage", "bacon", "extra cheese", "black olives", "green peppers",
-            "pineapple", "spinach", "anchovies", "jalapenos", "ham", "artichokes", "sun-dried tomatoes",
-            "grilled chicken", "roasted garlic", "broccoli", "feta cheese", "arugula", "provolone", "salami",
-            "prosciutto", "blue cheese", "chorizo", "truffle oil", "caramelized onions", "tofu", "basil", "eggplant"
-        ],
-        "STYLE": [
-            "thin crust", "deep dish", "stuffed crust", "gluten-free", "hand-tossed", "New York style", "Sicilian style",
-            "Neapolitan", "Detroit style", "Chicago style", "pan crust", "wood-fired", "crispy thin crust", "double crust",
-            "cheese-stuffed crust", "cauliflower crust", "flatbread style", "cracker-thin crust", "artisan style",
-            "vegan crust", "whole wheat crust"
-        ]
+    "DRINKTYPE": [
+        "iced tea", "iced cofee", "cola", "kola", "lemonade", "lemonaid", "orange juice", "orrange juice",
+        "sparkling water", "sparklin water", "coffee", "coffe", "green tea", "greeen tea", "latte", "lattee",
+        "cappuccino", "capuccino", "expresso", "espresso", "milkshake", "mylkshake", "smoothie", "smoothe",
+        "mocha", "mochaa", "hot chocolate", "herbal tea", "herbal tee", "black coffee", "blak coffee",
+        "americano", "amerikano", "frappuccino", "frapucino", "kombucha", "kombutcha", "energy drink",
+        "enrgy drink", "matcha latte", "matca latte", "cold brew", "cold breww", "ginger ale", "ginger ail",
+        "bubble tea", "buble tea", "chai latte", "chia latte", "turmeric latte", "turmeric latee"
+    ],
+    "TOPPING": [
+        "pepperoni", "peperoni", "mushrooms", "mushroms", "onions", "onionz", "sausage", "sausge",
+        "bacon", "bacn", "extra cheese", "extra cheez", "black olives", "blak olives", "green peppers", 
+        "grn peppers", "pineapple", "pinaple", "spinach", "spinich", "anchovies", "anchovis", "jalapenos",
+        "jalapinos", "ham", "grilled chicken", "grilled chiken", "roasted garlic", "roastd garlic",
+        "broccoli", "brocli", "feta cheese", "fetta cheese", "arugula", "arrugula", "provolone", "provlone",
+        "salami", "sallami", "prosciutto", "proscutto", "blue cheese", "blu cheese", "chorizo", "choriso",
+        "truffle oil", "truffl oil", "caramelized onions", "caramlized onions", "tofu", "basil", "bazil",
+        "eggplant", "egplant", "artichokes", "artchokes", "sun-dried tomatoes", "sun dried tomatos"
+    ],
+    "STYLE": [
+        "thin crust", "thn crust", "deep dish", "deap dish", "stuffed crust", "stuffd crust", "gluten-free",
+        "gluten freee", "hand-tossed", "hand tossed", "New York style", "NY style", "Sicilian style",
+        "Silician style", "Neapolitan", "Napolitan", "Detroit style", "Detriot style", "Chicago style",
+        "pan crust", "pancrust", "wood-fired", "wood fired", "crispy thin crust", "cripsy thin crust",
+        "double crust", "dubble crust", "cheese-stuffed crust", "cheesestuffed crust", "cauliflower crust",
+        "cauli flower crust", "flatbread style", "flat bread style", "cracker-thin crust", "artisan style",
+        "artesan style", "vegan crust", "vgn crust", "whole wheat crust", "whole wheet crust"
+    ]
     }
+
     return class_words
 
 
-def augment_pizza_train(file_path, output_path, class_words, augmentation_probability=0.3):
+def augment_pizza_train(file_path, output_path, class_words, augmentation_probability=0.5):
     """
     Augments the PIZZA_train dataset by replacing words in specific classes with new ones.
     """
@@ -150,7 +170,7 @@ def augment_pizza_train(file_path, output_path, class_words, augmentation_probab
 train_path = "dataset/PIZZA_train.json"
 dev_path = "dataset/PIZZA_dev.json"
 cleaned_output_path = "dataset/PIZZA_train_cleaned.json"
-augmented_output_path = "dataset/PIZZA_train_augmented.json"
+augmented_output_path = "dataset3/PIZZA_train.json"
 
 # Execute the functions
 clean_pizza_train_and_dev(train_path, dev_path, cleaned_output_path)
