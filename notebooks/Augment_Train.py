@@ -44,15 +44,6 @@ def clean_pizza_train_and_dev(train_path, dev_path, output_path):
                 src_text = record["dev.SRC"]
                 src_top = record["dev.TOP"]
                 outfile.write(json.dumps({"train.SRC": src_text, "train.TOP": src_top}) + "\n")
-                
-        # process PIZZA.test
-        with open("dataset/PIZZA_test.json", 'r') as test_file:
-            for line in test_file:
-                record = json.loads(line)
-                src_text = record["test.SRC"]
-                src_top = record["test.TOP"]
-                outfile.write(json.dumps({"train.SRC": src_text, "train.TOP": src_top}) + "\n")
-
 
 def generate_class_words():
     """
