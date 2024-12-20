@@ -67,6 +67,37 @@ class EntityResolver(ABC):
                 string_subtree = f'({tree.root_symbol()} {entity_value} )'
                 resolved_subtree = tree_class(flat_string=string_subtree).children()[0]
             return resolved_subtree
+        
+        # # works
+        # if all(c.is_leaf() for c in tree.children()):
+        #     children_tokens = [c.root_symbol() for c in tree.children()]
+        #     if tree.root_symbol() in self.entities:
+        #         entity_value = ' '.join(children_tokens)
+        #         string_subtree = f'({tree.root_symbol()} {entity_value} )'
+        #         resolved_subtree = tree_class(flat_string=string_subtree).children()[0]
+        #         return resolved_subtree
+        #     else:
+        #         # Fallback for unknown entities
+        #         return tree_class(flat_string=f'({tree.root_symbol()} {self.UNK_ENTITY_SYMBOL} )')
+            
+        # debug
+        # if all(c.is_leaf() for c in tree.children()):
+        #     children_tokens = [c.root_symbol() for c in tree.children()]
+        #     if tree.root_symbol() in self.entities:
+        #         entity_value = ' '.join(children_tokens)
+        #         string_subtree = f'({tree.root_symbol()} {entity_value} )'
+        #         resolved_subtree = tree_class(flat_string=string_subtree).children()[0]
+        #         return resolved_subtree
+        #     else:
+        #         # Print debug information when resolved_subtree is not assigned
+        #         print(f"Debug: Root symbol '{tree.root_symbol()}' not found in entities.")
+        #         print(f"Children tokens: {children_tokens}")
+        #         print(f"Entities keys: {list(self.entities.keys())}")
+        #         print("Tree representation:", tree.tree_rep)
+        #         # Raise an exception or log further if needed
+        #         raise ValueError(f"Unresolved subtree: Root symbol '{tree.root_symbol()}' is not in entities.")
+
+
 
         # We then recursively apply the method to children. Leaves of a node which has other
         # non-terminals as children are untouched. Other non-terminals are sent through entity resolution themselves.
