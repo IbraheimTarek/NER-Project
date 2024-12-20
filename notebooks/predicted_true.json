@@ -35846,3 +35846,7 @@ TOP_DECOUPLED: (ORDER (PIZZAORDER (NUMBER a ) (STYLE stuffed crust ) (QUANTITY a
 Match: False
 ------------------------------------------------------------------------------------------
 
+['I', 'would', 'like', 'one', 'large', 'thin', 'crust', 'pizza', 'with', 'hot', 'cheese', 'and', 'pepperoni']
+['O', 'O', 'B-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER']
+['O', 'O', 'B-NUMBER', 'B-SIZE', 'B-STYLE', 'I-STYLE', 'O', 'O', 'B-TOPPING', 'I-TOPPING', 'O', 'B-TOPPING', 'O']
+
