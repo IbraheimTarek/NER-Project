@@ -10,3 +10,19 @@
 ['B-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'O', 'O', 'B-DRINKORDER', 'I-DRINKORDER', 'O', 'B-DRINKORDER', 'I-DRINKORDER', 'I-DRINKORDER', 'O', 'B-DRINKORDER', 'I-DRINKORDER', 'I-DRINKORDER']
 ['O', 'O', 'O', 'B-NEG_TOPPING', 'I-NEG_TOPPING', 'O', 'O', 'B-NUMBER', 'B-DRINKTYPE', 'O', 'B-NUMBER', 'B-DRINKTYPE', 'I-DRINKTYPE', 'O', 'B-NUMBER', 'B-SIZE', 'B-DRINKTYPE']
 
+['I', 'would', 'like', 'one', 'large', 'thin', 'crust', 'pizza', 'with', 'hot', 'cheese', 'and', 'pepperoni']
+['O', 'O', 'B-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER']
+['O', 'O', 'B-NUMBER', 'B-SIZE', 'B-STYLE', 'I-STYLE', 'O', 'O', 'B-TOPPING', 'I-TOPPING', 'O', 'B-TOPPING', 'O']
+
+['five', 'large', 'pizzas', 'with', 'extra', 'chorizo', 'and', 'a', 'orange', 'juice']
+['B-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'O', 'B-DRINKORDER', 'I-DRINKORDER', 'I-DRINKORDER']
+['B-NUMBER', 'B-SIZE', 'O', 'O', 'B-QUANTITY', 'B-TOPPING', 'O', 'B-NUMBER', 'B-DRINKTYPE', 'I-DRINKTYPE']
+
+['pizza', 'with', 'no', 'feta', 'cheese', 'and', 'also', 'a', 'sprite', 'and', 'a', 'ginger', 'ale', 'and', 'four', 'medium', 'waters']
+['B-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'O', 'O', 'B-DRINKORDER', 'I-DRINKORDER', 'O', 'B-DRINKORDER', 'I-DRINKORDER', 'I-DRINKORDER', 'O', 'B-DRINKORDER', 'I-DRINKORDER', 'I-DRINKORDER']
+['O', 'O', 'O', 'B-NEG_TOPPING', 'I-NEG_TOPPING', 'O', 'O', 'B-NUMBER', 'B-DRINKTYPE', 'O', 'B-NUMBER', 'B-DRINKTYPE', 'I-DRINKTYPE', 'O', 'B-NUMBER', 'B-SIZE', 'B-DRINKTYPE']
+
+['pizza', 'with', 'no', 'feta', 'cheese', 'and', 'also', 'a', 'sprite', 'and', 'a', 'giinger', 'ale', 'and', 'four', 'medium', 'waters']
+['B-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'I-PIZZAORDER', 'O', 'O', 'B-DRINKORDER', 'I-DRINKORDER', 'O', 'B-DRINKORDER', 'I-DRINKORDER', 'I-DRINKORDER', 'O', 'B-DRINKORDER', 'I-DRINKORDER', 'I-DRINKORDER']
+['O', 'O', 'O', 'B-NEG_TOPPING', 'I-NEG_TOPPING', 'O', 'O', 'B-NUMBER', 'B-DRINKTYPE', 'O', 'B-NUMBER', 'B-DRINKTYPE', 'I-DRINKTYPE', 'O', 'B-NUMBER', 'B-SIZE', 'B-DRINKTYPE']
+
