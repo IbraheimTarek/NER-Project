@@ -8,6 +8,8 @@ The paper
 
 ## Project Document
 
+(https://docs.google.com/document/d/1ude4WKbsaIsi4xQkrJuX3b2UfT7YWjL0h9NPHHHRg30/edit?tab=t.0)
+
 ## Project Pipeline
 
 We begin our model by identifying the entities and labeling them using BIO taging techique.
